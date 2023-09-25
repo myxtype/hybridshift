@@ -8,7 +8,5 @@ import (
 func StartWorker() {
 	m := worker.NewWorkerManager()
 
-	m.AddWorker(NewTaskCheckWorker())
-
 	grace.WorkerRun(m)
 }
