@@ -29,7 +29,8 @@ func (t *OrderStatus) GormDataType() string {
 
 const (
 	OrderStatusNew        = OrderStatus("new")        // 新订单
-	OrderStatusPending    = OrderStatus("pending")    // 资金已收到，正在确认
+	OrderStatusConfirming = OrderStatus("confirming") // 资金已收到，正在确认
+	OrderStatusPending    = OrderStatus("pending")    // 确认完毕，等待处理
 	OrderStatusProcessing = OrderStatus("processing") // 已确认，正在处理
 	OrderStatusDone       = OrderStatus("done")       // 已完成
 )
