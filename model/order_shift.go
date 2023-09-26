@@ -19,4 +19,5 @@ const (
 	OrderShiftStatusPending    = OrderShiftStatus("pending")    // 订单已创建等待发款
 	OrderShiftStatusConfirming = OrderShiftStatus("confirming") // 已发款等待确认
 	OrderShiftStatusProcessing = OrderShiftStatus("processing") // 确认成功，等待处理
+	OrderShiftStatusDone       = OrderShiftStatus("done")       // 处理完成
 )
