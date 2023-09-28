@@ -144,7 +144,7 @@ type Order struct {
 	Emergency struct {
 		Status []EmergencyStatus `json:"status"`
 		Choice EmergencyChoice   `json:"choice"`
-		Repeat int64             `json:"repeat"`
+		Repeat string            `json:"repeat"`
 	} `json:"emergency"`
 	Token string `json:"token"`
 }

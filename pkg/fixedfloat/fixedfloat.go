@@ -70,3 +70,22 @@ func (c *Client) CreateOrder(params CreateOrderParams) (data *Order, err error) 
 	}
 	return
 }
+
+type GetOrderParams struct {
+	ID    string `json:"id"`
+	Token string `json:"token"`
+}
+
+func (c *Client) GetOrder(params GetOrderParams) (data *Order, err error) {
+	rsp, err := c.request("/api/v2/order", params)
+	if err != nil {
+		return nil, err
+	}
+	if rsp.Code != 0 {
+		return nil, errors.New(rsp.Msg)
+	}
+	if err := rsp.Unmarshal(&data); err != nil {
+		return nil, err
+	}
+	return
+}
