@@ -38,7 +38,9 @@ const (
 type EmergencyChoice string
 
 const (
-	EmergencyChoiceNone     = EmergencyChoice("NONE")
+	EmergencyChoiceNone = EmergencyChoice("NONE")
+	// Continue the exchange at the market rate at the time the selection was made or at the time the order was corrected
 	EmergencyChoiceExchange = EmergencyChoice("EXCHANGE")
-	EmergencyChoiceRefund   = EmergencyChoice("REFUND")
+	// Refund minus miner fee
+	EmergencyChoiceRefund = EmergencyChoice("REFUND")
 )
