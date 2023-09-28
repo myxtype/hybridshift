@@ -24,3 +24,35 @@ type Currency struct {
 	Color    string `json:"color"`
 	Priority int    `json:"priority"`
 }
+
+type ExchangeRate struct {
+	From struct {
+		Code      string `json:"code"`
+		Network   string `json:"network"`
+		Coin      string `json:"coin"`
+		Amount    string `json:"amount"`
+		Rate      string `json:"rate"`
+		Precision int    `json:"precision"`
+		Min       string `json:"min"`
+		Max       string `json:"max"`
+		USD       string `json:"usd"`
+		BTC       string `json:"btc"`
+	} `json:"from"`
+	To struct {
+		Code      string `json:"code"`
+		Network   string `json:"network"`
+		Coin      string `json:"coin"`
+		Amount    string `json:"amount"`
+		Rate      string `json:"rate"`
+		Precision int    `json:"precision"`
+		Min       string `json:"min"`
+		Max       string `json:"max"`
+		USD       string `json:"usd"`
+	} `json:"to"`
+	Errors []string `json:"errors"`
+	Ccies  []struct {
+		Code string `json:"code"`
+		Recv bool   `json:"recv"`
+		Send bool   `json:"send"`
+	} `json:"ccies"`
+}
