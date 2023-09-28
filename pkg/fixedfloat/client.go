@@ -6,6 +6,7 @@ import (
 	"crypto/sha256"
 	"encoding/hex"
 	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 	"strings"
@@ -64,6 +65,10 @@ func (c *Client) request(p string, v interface{}) (*response, error) {
 	body, err := io.ReadAll(rsp.Body)
 	if err != nil {
 		return nil, err
+	}
+
+	if rsp.StatusCode != http.StatusOK {
+		return nil, errors.New(string(body))
 	}
 
 	var r response
