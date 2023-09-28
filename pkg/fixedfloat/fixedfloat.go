@@ -10,8 +10,7 @@ func (c *Client) GetAllCurrencies() (data []*Currency, err error) {
 	if rsp.Code != 0 {
 		return nil, errors.New(rsp.Msg)
 	}
-
-	if err := rsp.DataUnmarshal(&data); err != nil {
+	if err := rsp.Unmarshal(&data); err != nil {
 		return nil, err
 	}
 	return
@@ -29,17 +28,15 @@ type GetPricesRequest struct {
 	Afftax    *string `json:"afftax,omitempty"`
 }
 
-func (c *Client) GetPrices(req *GetPricesRequest) (data *ExchangeRate, err error) {
+func (c *Client) GetPrices(req *GetPricesRequest) (data *ExchangePrice, err error) {
 	rsp, err := c.request("/api/v2/price", req)
 	if err != nil {
 		return nil, err
 	}
-
 	if rsp.Code != 0 {
 		return nil, errors.New(rsp.Msg)
 	}
-
-	if err := rsp.DataUnmarshal(&data); err != nil {
+	if err := rsp.Unmarshal(&data); err != nil {
 		return nil, err
 	}
 	return

@@ -8,7 +8,7 @@ type response struct {
 	Data json.RawMessage `json:"data"`
 }
 
-func (r *response) DataUnmarshal(v interface{}) error {
+func (r *response) Unmarshal(v interface{}) error {
 	return json.Unmarshal(r.Data, v)
 }
 
@@ -25,7 +25,7 @@ type Currency struct {
 	Priority int    `json:"priority"`
 }
 
-type ExchangeRate struct {
+type ExchangePrice struct {
 	From struct {
 		Code      string `json:"code"`
 		Network   string `json:"network"`
