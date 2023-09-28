@@ -25,3 +25,20 @@ const (
 	OrderStatusExpired   = OrderStatus("EXPIRED")
 	OrderStatusEmergency = OrderStatus("EMERGENCY")
 )
+
+type EmergencyStatus string
+
+const (
+	EmergencyStatusExpired = EmergencyStatus("EXPIRED")
+	EmergencyStatusLess    = EmergencyStatus("LESS")
+	EmergencyStatusMore    = EmergencyStatus("MORE")
+	EmergencyStatusLimit   = EmergencyStatus("LIMIT")
+)
+
+type EmergencyChoice string
+
+const (
+	EmergencyChoiceNone     = EmergencyChoice("NONE")
+	EmergencyChoiceExchange = EmergencyChoice("EXCHANGE")
+	EmergencyChoiceRefund   = EmergencyChoice("REFUND")
+)

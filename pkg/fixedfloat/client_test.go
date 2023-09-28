@@ -22,7 +22,7 @@ func TestClient_GetAllCurrencies(t *testing.T) {
 func TestClient_GetPrices(t *testing.T) {
 	cl := NewClient("MlwZ8yPHY2j34Vzuv9FiMWZdu0e57svhqxKDjCvY", "eyAcOG0KXiFuCyyKQ0W8EhSNYBTtGTILwSUTM2ra")
 
-	data, err := cl.GetPrices(&GetPricesRequest{
+	data, err := cl.GetPrices(&GetPricesParams{
 		Type:      "float",
 		FromCcy:   "USDTTRC",
 		ToCcy:     "BTC",
