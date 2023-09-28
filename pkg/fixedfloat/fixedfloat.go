@@ -17,15 +17,15 @@ func (c *Client) GetAllCurrencies() (data []*Currency, err error) {
 }
 
 type GetPricesRequest struct {
-	Type      string  `json:"type"` // float/fixed
-	FromCcy   string  `json:"fromCcy"`
-	ToCcy     string  `json:"toCcy"`
-	Direction string  `json:"direction"`
-	Amount    string  `json:"amount"`
-	Ccies     *bool   `json:"ccies,omitempty"`
-	Usd       *bool   `json:"usd,omitempty"`
-	Refcode   *string `json:"refcode,omitempty"`
-	Afftax    *string `json:"afftax,omitempty"`
+	Type      OrderType `json:"type"` // float/fixed
+	FromCcy   string    `json:"fromCcy"`
+	ToCcy     string    `json:"toCcy"`
+	Direction Direction `json:"direction"`
+	Amount    string    `json:"amount"`
+	Ccies     *bool     `json:"ccies,omitempty"`
+	Usd       *bool     `json:"usd,omitempty"`
+	Refcode   *string   `json:"refcode,omitempty"`
+	Afftax    *string   `json:"afftax,omitempty"`
 }
 
 func (c *Client) GetPrices(req *GetPricesRequest) (data *ExchangePrice, err error) {
