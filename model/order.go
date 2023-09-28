@@ -8,9 +8,8 @@ type Order struct {
 	ID        OrderID `gorm:"primarykey"`
 	CreatedAt time.Time
 	UpdatedAt time.Time
-	Status    OrderStatus
-	Token     string // 口令
-	FromCoin  string // 发送的币
+	Token     string      // 口令
+	Status    OrderStatus // 状态
 }
 
 // OrderID 订单ID
