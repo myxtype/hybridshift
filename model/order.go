@@ -1,6 +1,7 @@
 package model
 
 import (
+	"github.com/thanhpk/randstr"
 	"time"
 )
 
@@ -15,8 +16,12 @@ type Order struct {
 // OrderID 订单ID
 type OrderID string
 
-func (t *OrderStatus) OrderID() string {
+func (t *OrderID) GormDataType() string {
 	return "varchar(20)"
+}
+
+func NewOrderID() string {
+	return randstr.Hex(20)
 }
 
 // OrderStatus 订单状态
