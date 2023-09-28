@@ -2,6 +2,7 @@ package fixedfloat
 
 import (
 	"encoding/json"
+	"github.com/shopspring/decimal"
 	"testing"
 )
 
@@ -22,12 +23,13 @@ func TestClient_GetAllCurrencies(t *testing.T) {
 func TestClient_GetPrices(t *testing.T) {
 	cl := NewClient("MlwZ8yPHY2j34Vzuv9FiMWZdu0e57svhqxKDjCvY", "eyAcOG0KXiFuCyyKQ0W8EhSNYBTtGTILwSUTM2ra")
 
-	data, err := cl.GetPrices(&GetPricesParams{
+	data, err := cl.GetPrices(GetPricesParams{
 		Type:      "float",
 		FromCcy:   "USDTTRC",
 		ToCcy:     "BTC",
 		Direction: "to",
-		Amount:    "10",
+		Amount:    decimal.NewFromInt(10),
+		Ccies:     true,
 	})
 	if err != nil {
 		t.Fatal(err)
